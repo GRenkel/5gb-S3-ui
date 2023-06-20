@@ -25,7 +25,7 @@ export const s3API = {
     const listBucketObjectsCommand = awsS3Helper.getListBucketObjectsCommand(listCommandParams)
     try {
       const { Contents } = await awsS3Helper.sendS3Command(this.s3Client, listBucketObjectsCommand)
-      return Contents
+      return Contents || []
     } catch (error) {
       throw error
     }
